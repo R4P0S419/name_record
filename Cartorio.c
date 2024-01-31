@@ -138,7 +138,6 @@ int deletar(){//função de deletar
 	system("pause");
 }
 
-
 int main () //função principal
 	{
 	int opcao=0; //Definindo variaveis	
@@ -156,6 +155,7 @@ int main () //função principal
 		printf("\t1 - Cadastrar usuario\n");
 		printf("\t2 - Consultar usuario\n");
 		printf("\t3 - Deletar usuario\n");
+		printf("\t4 - Sair do sistema\n\n");
 		printf("Opção: "); //fim do menu
 		scanf("%d", &opcao);  //armazenando a escolha do usuario
 	
@@ -173,6 +173,11 @@ int main () //função principal
 			
 			case 3:
 			deletar();
+			break;
+			
+			case 4:
+			printf("Obrigado por utilizar o sistema <3\n");
+			return 0;//retorn 0 pode ser utilizado para fechar o sistema...
 			break;
 			
 			default:
