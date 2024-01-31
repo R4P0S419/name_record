@@ -5,6 +5,8 @@
 
 int registro(){//função de registro
 
+	int dicida=0;
+
     int escolha=0;
 	
 	setlocale(LC_ALL, "Portuguese");
@@ -84,16 +86,43 @@ int registro(){//função de registro
 			break;
 		}
 		
+	system("cls");
+		
+	printf("Deseja registrar mais usuarios? \n\n");
+	printf("1 - sim. \n");
+	printf("2 - não. \n");
+	printf("Opção: ");
+	scanf("%d", &dicida);	
+		
+	switch(dicida)
+	{
+		case 1:
+		registro();
+		break;
+		
+		case 2:
+		main();
+		break;
+		
+		default:
+		printf("Esta opção não existe, por favor escolha uma opção valida\n");
+		system("pause");
+		break;
+	}
+	system("pause");	
 	
-	
-	system("pause");
+
 }
 int consulta(){//função de consulta
+
+	int dicide=0;
 	
 	setlocale(LC_ALL, "Portuguese");
 	
 	char cpf[40];
 	char conteudo[200];
+	
+	system("cls");
 	
 	printf("Digite o CPF a ser consultado: ");//requisição de cpf para consulta
 	scanf("%s",cpf);
@@ -114,15 +143,43 @@ int consulta(){//função de consulta
 	}
 	
 	
+	printf("Deseja consultar mais usuarios? \n\n");
+	printf("1 - sim. \n");
+	printf("2 - não. \n");
+	printf("Opção: ");
+	scanf("%d", &dicide);
+	
+	switch(dicide)
+	{
+		case 1:
+		consulta();
+		break;
+		
+		case 2:
+		main();
+		break;
+		
+		default:
+		printf("Esta opção não existe, por favor escolha uma opção valida\n");
+		system("pause");
+		break;
+	}
+	
+	
 	system("pause");
+	
+
 }
 int deletar(){//função de deletar 
+
+	int dicidi=0;
 
 	//fazer teste e primoramentos nessa parte
 	setlocale(LC_ALL, "Portuguese");
 	
 	char cpf[40];
 	
+	system("cls");
 	printf("Digite o CPF do usuario a ser deletado: ");//requisiçao de cpf
 	scanf("%s",cpf);
 	
@@ -134,8 +191,33 @@ int deletar(){//função de deletar
 	if(file == NULL){
 		printf("Esse usuario nao foi encontrado!.\n");//caso o cpf digitado for nulo esse sera o resultado
 	}
-
+	
+	system("cls");
+	
+	printf("Deseja excluir mais usuarios? \n\n");
+	printf("1 - sim. \n");
+	printf("2 - não. \n");
+	printf("Opção: ");
+	scanf("%d", &dicidi);
+	
+	switch(dicidi)
+	{
+		case 1:
+		deletar();
+		break;
+		
+		case 2:
+		main();
+		break;
+		
+		default:
+		printf("Esta opção não existe, por favor escolha uma opção valida\n");
+		system("pause");
+		break;
+	}
 	system("pause");
+	
+	
 }
 
 int main () //função principal
