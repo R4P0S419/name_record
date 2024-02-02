@@ -5,6 +5,8 @@
 
 int registro(){//função de registro
 
+	system("cls");
+
 	int dicida=0;
 
     int escolha=0;
@@ -101,7 +103,7 @@ int registro(){//função de registro
 		break;
 		
 		case 2:
-		main();
+		menu();
 		break;
 		
 		default:
@@ -114,6 +116,7 @@ int registro(){//função de registro
 
 }
 int consulta(){//função de consulta
+	system("cls");
 
 	int dicide=0;
 	
@@ -156,7 +159,7 @@ int consulta(){//função de consulta
 		break;
 		
 		case 2:
-		main();
+		menu();
 		break;
 		
 		default:
@@ -171,6 +174,8 @@ int consulta(){//função de consulta
 
 }
 int deletar(){//função de deletar 
+
+	system("cls");
 
 	int dicidi=0;
 
@@ -207,7 +212,7 @@ int deletar(){//função de deletar
 		break;
 		
 		case 2:
-		main();
+		menu();
 		break;
 		
 		default:
@@ -216,57 +221,113 @@ int deletar(){//função de deletar
 		break;
 	}
 	system("pause");
-	
-	
 }
 
-int main () //função principal
-	{
+int menu(){
 	int opcao=0; //Definindo variaveis	
 	int laco=1; //inicio da repetição
+	char senhadigitada[10]="a";
+	int comparacao;
+	int tela=0;
 	
 	for(laco=1;laco=1;)
-	{
-	
-		system("cls");//limpar a tela
-	
-		setlocale(LC_ALL, "Portuguese"); //linha para ativar a regiãio de interesse
-	
-		printf("### Tela de cadastro da EBAC ###\n\n"); //inicio do menu
-		printf("Escolha a opção desejada do menu:\n\n"); 
-		printf("\t1 - Cadastrar usuario\n");
-		printf("\t2 - Consultar usuario\n");
-		printf("\t3 - Deletar usuario\n");
-		printf("\t4 - Sair do sistema\n\n");
-		printf("Opção: "); //fim do menu
-		scanf("%d", &opcao);  //armazenando a escolha do usuario
-	
-		system("cls"); //Limpar a tela depois de uma escolha do usuario
-		
-		switch(opcao) //inicio do metodo switch case
 		{
-			case 1:
-			registro();
-			break;
-			
-			case 2:
-			consulta();
-			break;
-			
-			case 3:
-			deletar();
-			break;
-			
-			case 4:
-			printf("Obrigado por utilizar o sistema <3\n");
-			return 0;//retorn 0 pode ser utilizado para fechar o sistema...
-			break;
-			
-			default:
-			printf("Esta opção não existe, por favor escolha uma opção valida\n");
-			system("pause");
-			break;
-		}//finaL do switch case
+
+			system("cls");//limpar a tela
+		
+			setlocale(LC_ALL, "Portuguese"); //linha para ativar a regiãio de interesse
 	
+			printf("### Tela de cadastro da EBAC ###\n\n"); //inicio do menu
+			printf("Escolha a opção desejada do menu:\n\n"); 
+			printf("\t1 - Cadastrar usuario\n");
+			printf("\t2 - Consultar usuario\n");
+			printf("\t3 - Deletar usuario\n");
+			printf("\t4 - Sair do sistema\n\n");
+			printf("Opção: "); //fim do menu
+			scanf("%d", &opcao);  //armazenando a escolha do usuario
+	
+			system("cls"); //Limpar a tela depois de uma escolha do usuario
+		
+			switch(opcao) //inicio do metodo switch case
+			{
+				case 1:
+				registro();
+				break;
+			
+				case 2:
+				consulta();
+				break;
+			
+				case 3:
+				deletar();
+				break;
+			
+				case 4:
+				printf("Obrigado por utilizar o sistema <3\n");
+				exit(1);
+				break;
+			
+				default:
+				printf("Esta opção não existe, por favor escolha uma opção valida\n");
+				system("pause");
+				break;
+			}//finaL do switch case
+		}
+}
+
+int acessar(){
+	
+	system("cls");
+	
+	int opcao=0; //Definindo variaveis	
+	int laco=1; //inicio da repetição
+	char senhadigitada[10]="a";
+	int comparacao;
+	int tela=0;
+	
+	printf("### Tela de cadastro da EBAC ###\n\n"); 
+	printf("Login de administrador!\n\nDigite a sua senha: "); 
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "7355608");
+	
+	if(comparacao==0)
+	{
+		menu();
+	}
+	else
+		system("cls");
+		printf("Senha incorreta!");
+		main();
+}
+
+int main() //função principal
+{
+	system("cls");
+	setlocale(LC_ALL, "Portuguese");
+	
+	int opcao=0; //Definindo variaveis	
+	int laco=1; //inicio da repetição
+	char senhadigitada[10]="a";
+	int comparacao;
+	int tela=0;
+	
+	printf("### Tela de cadastro da EBAC ###\n\n"); 
+	printf("\t1 - Entrar como administrador\n"); 
+	printf("\t2 - Resgitrar senha de administrador\n\n"); 
+	printf("Opção: ");
+	scanf("%d", &tela);
+	
+	switch(tela){
+		case 1:
+		acessar();
+		break;
+			
+		case 2:
+		return 0;
+		break;
 	}
 }
+	
+	
+
