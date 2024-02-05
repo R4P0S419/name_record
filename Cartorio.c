@@ -1,9 +1,9 @@
-#include <stdio.h> //biblioteca de comunicaÁ„o com o usu·rio
-#include <stdlib.h> //biblioteca de alocaÁ„o de espaÁo em memÛria
-#include <locale.h> //biblioteca de alocaÁ„o de texto por regi„o
+#include <stdio.h> //biblioteca de comunica√ß√£o com o usu√°rio
+#include <stdlib.h> //biblioteca de aloca√ß√£o de espa√ßo em mem√≥ria
+#include <locale.h> //biblioteca de aloca√ß√£o de texto por regi√£o
 #include <string.h> //biblioteca de string
 
-int registro(){//funÁ„o de registro
+int registro(){//fun√ß√£o de registro
 
 	system("cls");
 
@@ -59,7 +59,7 @@ int registro(){//funÁ„o de registro
 	printf("\t1 - aluno\n ");
 	printf("\t2 - professor\n ");
 	printf("\t3 - visitante\n: ");
-	printf("OpÁ„o: ");
+	printf("Op√ß√£o: ");
 	scanf("%d", &escolha);//%d = double
 	
 	switch(escolha)
@@ -83,7 +83,7 @@ int registro(){//funÁ„o de registro
 			break;
 			
 			default:
-			printf("Esta opÁ„o n„o existe, por favor escolha uma opÁ„o valida\n");
+			printf("Esta op√ß√£o n√£o existe, por favor escolha uma op√ß√£o valida\n");
 			system("pause");
 			break;
 		}
@@ -92,8 +92,8 @@ int registro(){//funÁ„o de registro
 		
 	printf("Deseja registrar mais usuarios? \n\n");
 	printf("1 - sim. \n");
-	printf("2 - n„o. \n");
-	printf("OpÁ„o: ");
+	printf("2 - n√£o. \n");
+	printf("Op√ß√£o: ");
 	scanf("%d", &dicida);	
 		
 	switch(dicida)
@@ -107,7 +107,7 @@ int registro(){//funÁ„o de registro
 		break;
 		
 		default:
-		printf("Esta opÁ„o n„o existe, por favor escolha uma opÁ„o valida\n");
+		printf("Esta op√ß√£o n√£o existe, por favor escolha uma op√ß√£o valida\n");
 		system("pause");
 		break;
 	}
@@ -115,7 +115,7 @@ int registro(){//funÁ„o de registro
 	
 
 }
-int consulta(){//funÁ„o de consulta
+int consulta(){//fun√ß√£o de consulta
 	system("cls");
 
 	int dicide=0;
@@ -127,29 +127,29 @@ int consulta(){//funÁ„o de consulta
 	
 	system("cls");
 	
-	printf("Digite o CPF a ser consultado: ");//requisiÁ„o de cpf para consulta
+	printf("Digite o CPF a ser consultado: ");//requisi√ß√£o de cpf para consulta
 	scanf("%s",cpf);
 	
 	FILE *file;
 	file = fopen(cpf,"r");
 	
-	if(file == NULL)//resposta caso nao encontre as informaÁıes
+	if(file == NULL)//resposta caso nao encontre as informa√ß√µes
 	{
-		printf("N„o foi possivel encontrar o arquivo, n„o localizado!.\n");
+		printf("N√£o foi possivel encontrar o arquivo, n√£o localizado!.\n");
 	}
 	
-	while(fgets(conteudo, 200, file) != NULL)//repetiÁ„o ENQUANTO o valor nao for nulo
+	while(fgets(conteudo, 200, file) != NULL)//repeti√ß√£o ENQUANTO o valor nao for nulo
 	{
-		printf("\nEssas s„o as informaÁıes do usuario, ");
-		printf("%s", conteudo);//informaÁoes mostradas para o usuario
+		printf("\nEssas s√£o as informa√ß√µes do usuario, ");
+		printf("%s", conteudo);//informa√ßoes mostradas para o usuario
 		printf("\n\n");
 	}
 	
 	
 	printf("Deseja consultar mais usuarios? \n\n");
 	printf("1 - sim. \n");
-	printf("2 - n„o. \n");
-	printf("OpÁ„o: ");
+	printf("2 - n√£o. \n");
+	printf("Op√ß√£o: ");
 	scanf("%d", &dicide);
 	
 	switch(dicide)
@@ -163,7 +163,7 @@ int consulta(){//funÁ„o de consulta
 		break;
 		
 		default:
-		printf("Esta opÁ„o n„o existe, por favor escolha uma opÁ„o valida\n");
+		printf("Esta op√ß√£o n√£o existe, por favor escolha uma op√ß√£o valida\n");
 		system("pause");
 		break;
 	}
@@ -173,7 +173,7 @@ int consulta(){//funÁ„o de consulta
 	
 
 }
-int deletar(){//funÁ„o de deletar 
+int deletar(){//fun√ß√£o de deletar 
 
 	system("cls");
 
@@ -185,10 +185,10 @@ int deletar(){//funÁ„o de deletar
 	char cpf[40];
 	
 	system("cls");
-	printf("Digite o CPF do usuario a ser deletado: ");//requisiÁao de cpf
+	printf("Digite o CPF do usuario a ser deletado: ");//requisi√ßao de cpf
 	scanf("%s",cpf);
 	
-	remove(cpf);//metodo de remoÁ„o
+	remove(cpf);//metodo de remo√ß√£o
 	
 	FILE *file;
 	file = fopen(cpf, "r");
@@ -201,8 +201,8 @@ int deletar(){//funÁ„o de deletar
 	
 	printf("Deseja excluir mais usuarios? \n\n");
 	printf("1 - sim. \n");
-	printf("2 - n„o. \n");
-	printf("OpÁ„o: ");
+	printf("2 - n√£o. \n");
+	printf("Op√ß√£o: ");
 	scanf("%d", &dicidi);
 	
 	switch(dicidi)
@@ -216,7 +216,7 @@ int deletar(){//funÁ„o de deletar
 		break;
 		
 		default:
-		printf("Esta opÁ„o n„o existe, por favor escolha uma opÁ„o valida\n");
+		printf("Esta op√ß√£o n√£o existe, por favor escolha uma op√ß√£o valida\n");
 		system("pause");
 		break;
 	}
@@ -225,7 +225,7 @@ int deletar(){//funÁ„o de deletar
 
 int menu(){
 	int opcao=0; //Definindo variaveis	
-	int laco=1; //inicio da repetiÁ„o
+	int laco=1; //inicio da repeti√ß√£o
 	char senhadigitada[10]="a";
 	int comparacao;
 	int tela=0;
@@ -235,15 +235,15 @@ int menu(){
 
 			system("cls");//limpar a tela
 		
-			setlocale(LC_ALL, "Portuguese"); //linha para ativar a regi„io de interesse
+			setlocale(LC_ALL, "Portuguese"); //linha para ativar a regi√£io de interesse
 	
 			printf("### Tela de cadastro da EBAC ###\n\n"); //inicio do menu
-			printf("Escolha a opÁ„o desejada do menu:\n\n"); 
+			printf("Escolha a op√ß√£o desejada do menu:\n\n"); 
 			printf("\t1 - Cadastrar usuario\n");
 			printf("\t2 - Consultar usuario\n");
 			printf("\t3 - Deletar usuario\n");
 			printf("\t4 - Sair do sistema\n\n");
-			printf("OpÁ„o: "); //fim do menu
+			printf("Op√ß√£o: "); //fim do menu
 			scanf("%d", &opcao);  //armazenando a escolha do usuario
 	
 			system("cls"); //Limpar a tela depois de uma escolha do usuario
@@ -268,7 +268,7 @@ int menu(){
 				break;
 			
 				default:
-				printf("Esta opÁ„o n„o existe, por favor escolha uma opÁ„o valida\n");
+				printf("Esta op√ß√£o n√£o existe, por favor escolha uma op√ß√£o valida\n");
 				system("pause");
 				break;
 			}//finaL do switch case
@@ -280,7 +280,7 @@ int acessar(){
 	system("cls");
 	
 	int opcao=0; //Definindo variaveis	
-	int laco=1; //inicio da repetiÁ„o
+	int laco=1; //inicio da repeti√ß√£o
 	char senhadigitada[10]="a";
 	int comparacao;
 	int tela=0;
@@ -301,13 +301,13 @@ int acessar(){
 		main();
 }
 
-int main() //funÁ„o principal
+int main() //fun√ß√£o principal
 {
 	system("cls");
 	setlocale(LC_ALL, "Portuguese");
 	
 	int opcao=0; //Definindo variaveis	
-	int laco=1; //inicio da repetiÁ„o
+	int laco=1; //inicio da repeti√ß√£o
 	char senhadigitada[10]="a";
 	int comparacao;
 	int tela=0;
@@ -315,7 +315,7 @@ int main() //funÁ„o principal
 	printf("### Tela de cadastro da EBAC ###\n\n"); 
 	printf("\t1 - Entrar como administrador\n"); 
 	printf("\t2 - Resgitrar senha de administrador\n\n"); 
-	printf("OpÁ„o: ");
+	printf("Op√ß√£o: ");
 	scanf("%d", &tela);
 	
 	switch(tela){
@@ -324,7 +324,8 @@ int main() //funÁ„o principal
 		break;
 			
 		case 2:
-		return 0;
+		printf("Essa op√ß√£o n√£o est√° dispon√≠vel no momento!")
+  main();
 		break;
 	}
 }
