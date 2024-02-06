@@ -66,7 +66,7 @@ int registro(){//função de registro
 		{
 			case 1:
 			file = fopen(arquivo, "a");
-			fprintf(file,"Aulo");
+			fprintf(file,"Aluno");
 			fclose(file);
 			break;
 			
@@ -238,13 +238,12 @@ int deletar(){//função de deletar
 	}
 	system("pause");
 }
+	
+
 
 int menu(){
 	int opcao=0; //Definindo variaveis	
 	int laco=1; //inicio da repetição
-	char senhadigitada[10]="a";
-	int comparacao;
-	int tela=0;
 	
 	for(laco=1;laco=1;)
 		{
@@ -294,38 +293,38 @@ int menu(){
 int acessar(){
 	
 	system("cls");
-	
-	int opcao=0; //Definindo variaveis	
-	int laco=1; //inicio da repetição
-	char senhadigitada[10]="a";
-	int comparacao;
-	int tela=0;
+	char arquivoteste[40];
+	char senha2[40];
+	char senhaadmin[40];
+
 	
 	printf("### Tela de cadastro da EBAC ###\n\n"); 
 	printf("Login de administrador!\n\nDigite a sua senha: "); 
-	scanf("%s",senhadigitada);
+	scanf("%s",arquivoteste);
 	
-	comparacao = strcmp(senhadigitada, "7355608");
+	FILE *file;
+	file = fopen(arquivoteste,"r");
 	
-	if(comparacao==0)
+	
+	if(file == NULL)//resposta caso nao encontre as informações
+	{
+		printf("senha invalida!.\n");
+		acessar();
+		
+	}
+	
+	while(fgets(senhaadmin, 40, file) != NULL)//repetição ENQUANTO o valor nao for nulo
 	{
 		menu();
 	}
-	else
-		system("cls");
-		printf("Senha incorreta!");
-		main();
+	fclose(file);
 }
 
 int main() //função principal
 {
 	system("cls");
 	setlocale(LC_ALL, "Portuguese");
-	
-	int opcao=0; //Definindo variaveis	
-	int laco=1; //inicio da repetição
-	char senhadigitada[10]="a";
-	int comparacao;
+
 	int tela=0;
 	
 	printf("### Tela de cadastro da EBAC ###\n\n"); 
@@ -340,10 +339,163 @@ int main() //função principal
 		break;
 			
 		case 2:
-		return 0;
+		system("cls");
+		senhamestre();
+		system("pause");
+		break;
+		
+		default:
+		system("cls");
+		printf("Essa opção é invalida, tente novamente.!\n\n");
+		system("pause");
+		main();
 		break;
 	}
 }
+
+int admincadastro(){
+	
+
+	system("cls");
+	char arquivoteste[40];
+	char senha1[40];
+	char senha2[40];
+	char cpf[40];
+	char nome[40];
+	char sobrenome[40];
+	char cargo[40];
+	int comparacaoteste;
+	
+	int escolhajj=0;
+	
+	printf("Digite a senha desejada: ");
+	scanf("%s", senha1);
+	printf("Digite a senha novamente: ");
+	scanf("%s", senha2);
+	
+	strcpy(arquivoteste, senha2);
 	
 	
+	comparacaoteste = strcmp(senha1, senha2);
+	
+	
+	if(comparacaoteste==0){
+		
+	FILE *file; //criar arquivos
+	file = fopen(arquivoteste, "w"); //criar arquivos
+	fprintf(file,senha2);//salvar o valor da varievel no arquivo
+	fclose(file);
+	
+	file = fopen(arquivoteste, "a");
+	fprintf(file,",");
+	fclose(file);
+	
+	printf("Digite o CPF a ser cadastrado: ");
+	scanf("%s", cpf);//%s = strings
+	
+	file = fopen(arquivoteste, "a");// "a" de atualizar, "r" ler ,"w" escrever
+	fprintf(file,cpf);
+	fclose(file);
+	
+	file = fopen(arquivoteste, "a");
+	fprintf(file,",");
+	fclose(file);
+	
+	printf("Digite o nome a ser cadastrado: ");//coletando nome do usuario
+	scanf("%s",nome);
+	
+	file = fopen(arquivoteste, "a");// "a" de atualizar, "r" ler ,"w" escrever
+	fprintf(file,nome);
+	fclose(file);
+	
+	file = fopen(arquivoteste, "a");
+	fprintf(file,",");
+	fclose(file);
+	
+	printf("Digite o sobrenome a ser cadastrado: ");//coletando sobrenome do usuario
+	scanf("%s",sobrenome);
+	
+	file = fopen(arquivoteste, "a");
+	fprintf(file,sobrenome);
+	fclose(file);
+	
+	file = fopen(arquivoteste, "a");
+	fprintf(file,",");
+	fclose(file);
+	
+	printf("Selecione o cargo desejado: \n");
+	printf("\t1 - aluno\n ");
+	printf("\t2 - professor\n ");
+	printf("\t3 - visitante\n: ");
+	printf("Opção: ");
+	scanf("%d", &escolhajj);//%d = double
+	
+	switch(escolhajj)
+		{
+			case 1:
+			file = fopen(arquivoteste, "a");
+			fprintf(file,"Aulo");
+			fclose(file);
+			break;
+			
+			case 2:
+			file = fopen(arquivoteste, "a");
+			fprintf(file,"Professor");
+			fclose(file);
+			break;
+			
+			case 3:
+			file = fopen(arquivoteste, "a");
+			fprintf(file,"Visitante");
+			fclose(file);
+			break;
+			
+			default:
+			printf("Esta opção não existe, por favor escolha uma opção valida\n");
+			system("pause");
+			break;
+		}
+	
+	system("cls");
+	printf("Cadastro finalizado!\n");
+	system("pause");
+	system("cls");
+	main();
+	
+	
+	}
+	else
+		system("cls");
+		printf("Senha incompativel!\n");
+		system("pause");
+		senhamestre();
+	
+}
+
+int senhamestre(){
+	
+	system("cls");
+	
+	int opcao=0; //Definindo variaveis	
+	int laco=1; //inicio da repetição
+	char senhadigitada[10]="a";
+	int comparacao;
+	int tela=0;
+	
+	printf("### Tela de cadastro da EBAC ###\n\n"); 
+	printf("Login de administrador!\n\nDigite a sua senha mestre: "); 
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "7355608");
+	
+	if(comparacao==0)
+	{
+		admincadastro();
+	}
+	else
+		system("cls");
+		printf("Senha mestre incorreta!\n");
+		system("pause");
+		senhamestre();
+}
 
