@@ -17,7 +17,7 @@ int registro(){//função de registro
 	char cpf[40];
 	char nome[40];
 	char sobrenome[40];
-	char cargo[40];
+	char cargo[100];
 	
 	printf("Digite o CPF a ser cadastrado: ");
 	scanf("%s", cpf);//%s = strings
@@ -58,7 +58,12 @@ int registro(){//função de registro
 	printf("Selecione o cargo desejado: \n");
 	printf("\t1 - aluno\n ");
 	printf("\t2 - professor\n ");
-	printf("\t3 - visitante\n: ");
+	printf("\t3 - visitante\n ");
+	printf("\t4 - Engenheiro de QA\n ");
+	printf("\t5 - Desenvolvedor FullStack Python\n ");
+	printf("\t6 - Desenvolvedor FullStack Java\n ");
+	printf("\t7 - Cientista de dados\n ");
+	printf("\t8 - Analista de dados\n ");
 	printf("Opção: ");
 	scanf("%d", &escolha);//%d = double
 	
@@ -79,6 +84,36 @@ int registro(){//função de registro
 			case 3:
 			file = fopen(arquivo, "a");
 			fprintf(file,"Visitante");
+			fclose(file);
+			break;
+			
+			case 4:
+			file = fopen(arquivo, "a");
+			fprintf(file,"engenheiroQA");
+			fclose(file);
+			break;
+			
+			case 5:
+			file = fopen(arquivo, "a");
+			fprintf(file,"devfullstackpython");
+			fclose(file);
+			break;
+			
+			case 6:
+			file = fopen(arquivo, "a");
+			fprintf(file,"devfullstackjava");
+			fclose(file);
+			break;
+			
+			case 7:
+			file = fopen(arquivo, "a");
+			fprintf(file,"cientistadedados");
+			fclose(file);
+			break;
+			
+			case 8:
+			file = fopen(arquivo, "a");
+			fprintf(file,"analistadedados");
 			fclose(file);
 			break;
 			
@@ -123,7 +158,7 @@ int consulta(){//função de consulta
 	setlocale(LC_ALL, "Portuguese");
 	
 	char cpf[40];
-	char conteudo[200];
+	char conteudo[300];
 	
 	system("cls");
 	
@@ -138,7 +173,7 @@ int consulta(){//função de consulta
 		printf("Não foi possivel encontrar o arquivo, não localizado!.\n");
 	}
 	
-	while(fgets(conteudo, 200, file) != NULL)//repetição ENQUANTO o valor nao for nulo
+	while(fgets(conteudo, 300, file) != NULL)//repetição ENQUANTO o valor nao for nulo
 	{
 		printf("\nEssas são as informações do usuario, ");
 		printf("%s", conteudo);//informaçoes mostradas para o usuario
@@ -308,7 +343,9 @@ int acessar(){
 	
 	if(file == NULL)//resposta caso nao encontre as informações
 	{
+		system("cls");
 		printf("senha invalida!.\n");
+		system("pause");
 		acessar();
 		
 	}
@@ -328,20 +365,24 @@ int main() //função principal
 	int tela=0;
 	
 	printf("### Tela de cadastro da EBAC ###\n\n"); 
-	printf("\t1 - Entrar como administrador\n"); 
-	printf("\t2 - Resgitrar senha de administrador\n\n"); 
+	printf("\t1 - Entrar como visitante\n");
+	printf("\t2 - Entrar como administrador\n"); 
+	printf("\t3 - Resgitrar senha de administrador\n\n"); 
 	printf("Opção: ");
 	scanf("%d", &tela);
 	
 	switch(tela){
+		
 		case 1:
+		visitante();
+		break;
+		
+		case 2:
 		acessar();
 		break;
 			
-		case 2:
-		system("cls");
+		case 3:
 		senhamestre();
-		system("pause");
 		break;
 		
 		default:
@@ -476,8 +517,6 @@ int senhamestre(){
 	
 	system("cls");
 	
-	int opcao=0; //Definindo variaveis	
-	int laco=1; //inicio da repetição
 	char senhadigitada[10]="a";
 	int comparacao;
 	int tela=0;
@@ -497,5 +536,52 @@ int senhamestre(){
 		printf("Senha mestre incorreta!\n");
 		system("pause");
 		senhamestre();
+}
+
+
+int visitante(){
+	int opcao=0; //Definindo variaveis	
+	int laco=1; //inicio da repetição
+	
+	for(laco=1;laco=1;)
+		{
+
+			system("cls");//limpar a tela
+		
+			setlocale(LC_ALL, "Portuguese"); //linha para ativar a regiãio de interesse
+	
+			printf("### Tela de cadastro da EBAC ###\n\n"); //inicio do menu
+			printf("Escolha a opção desejada do menu:\n\n"); 
+			printf("\t1 - Cadastrar usuario\n");
+			printf("\t2 - Consultar usuario\n\n");
+				
+			printf("\t3 - Sair do sistema\n\n");
+			
+			printf("Opção: "); //fim do menu
+			scanf("%d", &opcao);  //armazenando a escolha do usuario
+	
+			system("cls"); //Limpar a tela depois de uma escolha do usuario
+		
+			switch(opcao) //inicio do metodo switch case
+			{
+				case 1:
+				registro();
+				break;
+			
+				case 2:
+				consulta();
+				break;
+			
+				case 3:
+				printf("Obrigado por utilizar o sistema <3\n");
+				exit(1);
+				break;
+			
+				default:
+				printf("Esta opção não existe, por favor escolha uma opção valida\n");
+				system("pause");
+				break;
+			}//finaL do switch case
+		}
 }
 
